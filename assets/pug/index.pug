@@ -1,0 +1,26 @@
+extends layout/main
+include _mixin
+
+block title
+    | Главная страница
+
+
+block content
+
+    .wrapper
+        include ./modules/header
+        h2 test png-sprites
+        i(class="facebook")
+        i(class="facebook-hover")
+        h2 и еще раз svg )))
+        +icon('money')
+
+
+
+
+
+
+
+
+        .empty
+    include ./modules/footer

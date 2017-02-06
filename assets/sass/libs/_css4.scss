@@ -1,0 +1,30 @@
+@if($css4) {
+    :root {
+        @each $variable, $value in $variables {
+            #{$variable}: $value;
+        }
+    }
+}
+@function var($variable) {
+     @if($css4){
+        @return unquote( 'var(' + $variable + ')');
+    }
+    @else {
+         @return map-get($variables, $variable);
+    }
+}
+@mixin css4 {
+     @if ($css4){
+        $css4-backup: $css4;
+        @if($compatibility) {
+            $css4: false !global;
+            @content;
+        }
+        $css4: true !global;
+        @content;
+        $css4: $css4-backup;
+    }
+    @else {
+         @content;
+    }
+}

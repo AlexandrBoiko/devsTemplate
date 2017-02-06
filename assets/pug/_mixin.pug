@@ -1,0 +1,35 @@
+﻿mixin social(items,mod)
+    ul.social_list(class="#{mod}")
+        each item in items
+            li.social_item(class="#{mod}")
+                a.social_link(class="#{item}_mod #{mod}" href="#") #{item}
+
+mixin icon(name,mod)
+    - mod = mod || ''
+    svg(class="icon icon-" + name + ' ' + mod)
+        use(xlink:href="i/sprite/sprite.svg#" + name)
+
+mixin list(array,mod)
+    ul(class="#{mod}_list")
+        each item in array.items
+            li(class="#{mod}_item")= item
+
+mixin span_list(array,mod)
+    ul(class="#{mod}_list")
+        each item in array
+            li(class="#{mod}_item")
+                span(class="#{mod}_text")= item
+
+mixin link_list(array,mod)
+    ul(class="#{mod}_list")
+        each item in array.items
+            li(class="#{mod}_item")
+                a(class="#{mod}_link" href="#")= item
+
+mixin header
+    header.header
+        block
+
+mixin footer
+    footer.footer
+        block
