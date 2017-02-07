@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     svgSprite = require('gulp-svg-sprite'),
     rimraf = require('rimraf'),
     plumber = require('gulp-plumber'),
+    del = require('del'),
     inlineimage = require('gulp-inline-image'),
     pug = require('gulp-pug'),
     sass = require('gulp-sass'),
@@ -23,7 +24,7 @@ var assetsDir = 'assets/';
 var outputDir = 'dist/';
 var buildDir = 'build/';
 //livereload and open project in browser
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', function () {
     browserSync.init({
         port: 1337,
         server: {
@@ -31,7 +32,7 @@ gulp.task('browser-sync', function() {
         }
     });
 });
-gulp.task('pug', function() {
+gulp.task('pug', function () {
     gulp.src([assetsDir + 'pug/*.pug', '!' + assetsDir + 'pug/_*.pug'])
         .pipe(pug({
             pretty: true
@@ -39,7 +40,7 @@ gulp.task('pug', function() {
         .pipe(gulp.dest(outputDir))
         .pipe(browserSync.stream());
 });
-gulp.task('sass', function() {
+gulp.task('sass', function () {
     gulp.src([assetsDir + 'sass/**/*.sass', '!' + assetsDir + 'sass/**/_*.sass'])
         .pipe(plumber())
         .pipe(sourcemaps.init())
@@ -50,7 +51,7 @@ gulp.task('sass', function() {
         .pipe(gulp.dest(outputDir + 'styles/'))
         .pipe(browserSync.stream());
 });
-gulp.task('jsConcat', function() {
+gulp.task('jsConcat', function () {
     return gulp.src(assetsDir + 'js/all/**/*.js')
         .pipe(concat('all.js', {
             newLine: ';'
@@ -58,7 +59,7 @@ gulp.task('jsConcat', function() {
         .pipe(gulp.dest(outputDir + 'js/'))
         .pipe(browserSync.stream());
 });
-gulp.task('svgSpriteBuild', function() {
+gulp.task('svgSpriteBuild', function () {
     return gulp.src(assetsDir + 'i/icons/*.svg')
         // minify svg
         .pipe(svgmin({
@@ -83,15 +84,31 @@ gulp.task('svgSpriteBuild', function() {
         }))
         .pipe(gulp.dest(assetsDir + 'i/sprite/'));
 });
-gulp.task('sprite', function() {
-    var spriteData = gulp.src('assets/sprite-png/*.png').pipe(spritesmith({
-        imgName: 'sprite.png',
-        cssName: '_sprite-png.scss'
-    }));
-    spriteData.css.pipe(gulp.dest('assets/sass/'));
-    spriteData.img.pipe(gulp.dest('assets/i/sprite/'));
+// gulp.task('sprite', function() {
+//     var spriteData = gulp.src('assets/sprite-png/*.png').pipe(spritesmith({
+//         imgName: 'sprite.png',
+//         cssName: '_sprite-png.scss'
+//     }));
+//     spriteData.css.pipe(gulp.dest('assets/sass/'));
+//     spriteData.img.pipe(gulp.dest('assets/i/sprite/'));
+// });
+gulp.task('cleanPngSprite', function (cb) {
+    del([outputDir + '/img/sprite/sprite.png'], cb);
 });
-gulp.task('imageSync', function() {
+
+
+gulp.task('spritePng', function () {
+    var spriteData = gulp.src(assetsDir + 'img/sprite/*.png').pipe(spritesmith({
+        imgName: 'sprite.png',
+        cssName: '_spritePng.scss'
+    }));
+    //spriteData.pipe(gulp.dest(assetsDir + 'img/sprite/'));
+    spriteData.img.pipe(gulp.dest(outputDir + 'img/sprite/'));
+    spriteData.css.pipe(gulp.dest(assetsDir + 'sass/'));
+});
+
+
+gulp.task('imageSync', function () {
     return gulp.src('')
         .pipe(plumber())
         .pipe(dirSync(assetsDir + 'i/', outputDir + 'i/', {
@@ -99,7 +116,7 @@ gulp.task('imageSync', function() {
         }))
         .pipe(browserSync.stream());
 });
-gulp.task('fontsSync', function() {
+gulp.task('fontsSync', function () {
     return gulp.src('')
         .pipe(plumber())
         .pipe(dirSync(assetsDir + 'fonts/', outputDir + 'fonts/', {
@@ -108,22 +125,22 @@ gulp.task('fontsSync', function() {
         .pipe(browserSync.stream());
 });
 
-gulp.task('jsSync', function() {
+gulp.task('jsSync', function () {
     return gulp.src(assetsDir + 'js/*.js')
         .pipe(plumber())
         .pipe(gulp.dest(outputDir + 'js/'))
         .pipe(browserSync.stream());
 });
 
-gulp.task('watch', function() {
+gulp.task('watch', function () {
     gulp.watch(assetsDir + 'pug/**/*.pug', ['pug']);
     gulp.watch(assetsDir + 'sass/**/*.*', ['sass']);
     gulp.watch(assetsDir + 'js/**/*.js', ['jsSync']);
     gulp.watch(assetsDir + 'js/all/**/*.js', ['jsConcat']);
     gulp.watch(assetsDir + 'i/**/*', ['imageSync']);
-    // gulp.watch(assetsDir + 'sprite-png/*.png', ['sprite']);
+    gulp.watch(assetsDir + 'img/sprite/*.png', ['cleanPngSprite', 'spritePng']);
     gulp.watch(assetsDir + 'fonts/**/*', ['fontsSync', 'fontsConvert']);
 });
-gulp.task('default', ['pug', 'sprite', 'sass', 'fontsSync', 'svgSpriteBuild', 'imageSync',
-    'jsConcat', 'jsSync', 'watch', 'browser-sync'
+gulp.task('default', ['pug', 'cleanPngSprite', 'spritePng', 'fontsSync', 'svgSpriteBuild', 'imageSync',
+    'jsConcat', 'jsSync', 'sass', 'watch', 'browser-sync'
 ]);
