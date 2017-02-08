@@ -84,14 +84,7 @@ gulp.task('svgSpriteBuild', function () {
         }))
         .pipe(gulp.dest(assetsDir + 'i/sprite/'));
 });
-// gulp.task('sprite', function() {
-//     var spriteData = gulp.src('assets/sprite-png/*.png').pipe(spritesmith({
-//         imgName: 'sprite.png',
-//         cssName: '_sprite-png.scss'
-//     }));
-//     spriteData.css.pipe(gulp.dest('assets/sass/'));
-//     spriteData.img.pipe(gulp.dest('assets/i/sprite/'));
-// });
+
 gulp.task('cleanPngSprite', function (cb) {
     del([outputDir + '/img/sprite/sprite.png'], cb);
 });
