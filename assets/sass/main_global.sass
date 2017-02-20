@@ -5,6 +5,7 @@
 @import 'libs/basic.sass'
 @import 'sprite.scss'
 @import 'spritePng.scss'
+@import 'blocks/_footer.sass'
 
 $icon_font_name: 'iconfont'
 @font-face
@@ -19,18 +20,17 @@ $icon_font_name: 'iconfont'
     $sprite-image: nth($sprite, 9)
     background-image: url(../img/sprite/#{$sprite-image})
 
-.facebook
-    +sprite($facebook)
-    display: inline-block
-    &:hover
-        +sprite($facebook-hover)
+//.facebook
+//    +sprite($facebook)
+//    display: inline-block
+//    &:hover
+//        +sprite($facebook-hover)
 
 
-body
-    padding: 0 50px
 
-h2
-    font-family: 'NautilusPompiliusRegular', sans-serif
+
+
+
 
 .wrapper
     min-height: 100%
@@ -50,3 +50,4 @@ h2
 
 .icon-money
     font-size: 5rem
+
