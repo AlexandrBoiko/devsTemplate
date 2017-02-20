@@ -25,18 +25,32 @@ footer,.footer
             position: relative
             display: inline-block
             vertical-align: top
-            width: 15%
-            .social
-                position: relative
-            .time-work
-                display: inline-block
+            width: 11%
             .item
-                h5
-                    font-size: 14px
+                .social-inn
+                    padding: 10px 0 0 150px
+
                 a
                     display: block
                     font-size: 14px
                     color: grey
+            .worktime
+                padding-top: 10px
+                .worktime-inn
+                    width: 230px
+                    height: 148px
+                    border: 1px solid #dfdfdf
+                    border-radius: 10px
+                    text-align: center
+
+                    h5
+                        margin: 0 0 10px 0
+                        font-size: 14px
+                    span
+                        display: block
+                        &.call
+                            color: grey
+                            margin-bottom: 10px
 
 =sprite-image($sprite)
     $sprite-image: nth($sprite, 9)
