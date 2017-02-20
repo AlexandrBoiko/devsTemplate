@@ -1,0 +1,301 @@
+/**
+ * Form elements.
+ */
+//.aprolis-form{
+//  padding-bottom: 14px;
+//  .form-item,
+//  .form-actions{
+//    margin: 0 0 5px;
+//    padding: 0 0 11px;
+//    position: relative;
+//    input[type="text"],
+//    input[type="tel"],
+//    input[type="email"],
+//    input[type="url"],
+//    input[type="password"],
+//    input[type="search"],
+//    textarea{
+//      width: 100%;
+//      resize: none;
+//      border-radius: 0!important;
+//    }
+//  }
+//  .form-actions{
+//    padding-top: 16px;
+//    margin-bottom: 0;
+//
+//    .btn{
+//      min-width: 300px;
+//      border-radius: 0!important;
+//    }
+//  }
+//  .form-item-pair{
+////    @extend %clearfix;
+//    @include clearfix;
+//    margin: 0 -10px;
+//    .form-item{
+////      width: 50%;
+////      float: left;
+////      padding: 0 10px;
+////      margin-bottom: 10px;
+////      padding: 0 10px 15px;
+//      float:  left;
+//      margin: 0 0 5px;
+//      padding: 0 10px 11px;
+//      position: relative;
+//      width: 50%;
+//      @include phone{
+//        width: 100%;
+//      }
+//      @include x-phone{
+//        width: 100%;
+//      }
+//      @include small-phone{
+//        width: 100%;
+//      }
+//    }
+//  }
+//  label{
+//    display: block;
+//    font-weight: bold;
+//    color: $color-blue;
+//    font-size: 14px;
+//    line-height: 17px;
+//    padding-bottom: 5px;
+//    @include phone{
+//      font-size: 12px;
+//      line-height: 15px;
+//    }
+//    @include small-phone{
+//      font-size: 12px;
+//      line-height: 15px;
+//    }
+//  }
+//  textarea{
+//    max-height: 122px;
+//  }
+//  .red-description,.error-message{
+//    bottom: 0;
+//    color: $color-red;
+//    font-size: 10px;
+//    line-height: 1;
+//    position: absolute;
+//  }
+//}
+//
+//div.messages{
+//  background: $color-bg-messages;
+//  color: $color-green;
+//  font-size: 18px;
+//  line-height: 22px;
+//  padding: 9px 10px;
+//  margin: 3px 0;
+//
+//  p{
+//    font-size: 18px;
+//    line-height: 22px;
+//  }
+//}
+//
+//
+//
+///*select*/
+//.jcf-select-custom-select{
+//  border: 1px solid $color-grey;
+//  margin: 0;
+//  width: 100%;
+//  height: 42px;
+//  cursor: pointer;
+//  @include phone{
+//    height: 32px;
+//  }
+//  @include small-phone{
+//    height: 32px;
+//  }
+//  .jcf-select-text{
+//    color: $color-grey-dark;
+//    font-size: 14px;
+//    line-height: 40px;
+//    font-weight: bold;
+//    margin: 0 32px 0 9px;
+//    cursor: pointer;
+//    @include phone{
+//      line-height: 32px;
+//    }
+//    @include small-phone{
+//      line-height: 32px;
+//    }
+//  }
+//  .jcf-select-opener{
+//    @include sprite($select-opener);
+//    background-color: $color-white;
+//    right: 9px;
+//    top:7px;
+//    @include phone{
+//      line-height: 32px;
+//      top: 2px;
+//    }
+//    @include small-phone{
+//      line-height: 32px;
+//      top: 2px;
+//    }
+//  }
+//  &.jcf-focus,
+//  &.jcf-drop-active{
+//    border: 1px solid $color-grey !important;
+//  }
+//  /*drop down*/
+//  &.jcf-select-drop{
+//    height: auto;
+//    border: 0;
+//      @include phone{
+//        max-width: 640px;
+//      }
+//      @include small-phone{
+//        max-width: 290px;
+//      }
+//  }
+//
+//  .jcf-select-drop-content{
+//    border: 1px solid $color-grey;
+//  }
+//  .jcf-list{
+//    .jcf-list-content{
+//
+//    }
+//    .jcf-option-title-select{
+//      display: none;
+//    }
+//    ul{
+//      li{
+//
+//      }
+//    }
+//    .jcf-option{
+//      font-size: 14px;
+//      cursor: pointer;
+//    }
+//    .jcf-disabled{
+//      background: $color-white !important;
+//      color: $color-grey !important;
+//    }
+//    .jcf-selected,
+//    .jcf-hover{
+//    }
+//  }
+//}
+//
+///* checkbox */
+//input[type="checkbox"] {
+//  position: absolute!important;
+//  left: -9999px!important;
+//}
+//input[type="checkbox"] + label {
+//  position: relative;
+//  display: block;
+//  font-weight: normal;
+//  overflow: hidden;
+//  padding: 0;
+//  color: $color-black;
+//  float: left;
+//  &:hover{
+//    cursor: pointer;
+//  }
+//}
+//input[type="checkbox"] + label::before {
+//  content: "";
+//  vertical-align: middle;
+//  display: inline-block;
+//  position: relative;
+//  overflow: hidden;
+//  cursor: default;
+//  background: $color-white;
+//  border: 1px solid $color-border-grey-checkbox;
+//  height: 30px;
+//  width: 30px;
+//  float: left;
+//  margin-right: 15px;
+//  @include phone{
+//    width: 25px;
+//    height: 25px;
+//    margin-right: 10px;
+//  }
+//  @include small-phone{
+//    width: 25px;
+//    height: 25px;
+//    margin-right: 10px;
+//  }
+//}
+//input[type="checkbox"]:checked + label::before {}
+//input[type="checkbox"] + label::after{}
+//input[type="checkbox"]:checked + label::after{
+//  content: "";
+//  position: absolute;
+//  display: block;
+//  margin: -7px 0 0 -6px;
+//  border-style: solid;
+//  border-color: $color-border-grey-checkbox ;
+//  border-width: 0 0 3px 3px;
+//  -moz-transform: rotate(-45deg);
+//  -ms-transform: rotate(-45deg);
+//  -webkit-transform: rotate(-45deg);
+//  transform: rotate(-45deg);
+//  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.7071067811865483, M12=0.7071067811865467, M21=-0.7071067811865467, M22=0.7071067811865483, SizingMethod='auto expand')";
+//  height: 10px;
+//  left: 12px;
+//  top: 15px;
+//  width: 20px;
+//  @include phone{
+//    border-style: solid;
+//    border-color: $color-border-grey-checkbox ;
+//    border-width: 0 0 2px 2px;
+//    height: 8px;
+//    left: 12px;
+//    top: 14px;
+//    width: 16px;
+//  }
+//  @include small-phone{
+//    border-style: solid;
+//    border-color: $color-border-grey-checkbox ;
+//    border-width: 0 0 2px 2px;
+//    height: 8px;
+//    left: 12px;
+//    top: 14px;
+//    width: 16px;
+//  }
+//}
+//
+///* common styles */
+//.jcf-disabled {background: $color-bg-grey !important;}
+//.jcf-focus, .jcf-focus * {border-color: $color-border-grey-checkbox !important;}
+//.captcha{
+//  .g-recaptcha{
+//    text-align: right;
+//    >div{
+//      display: inline-block;
+//      @include small-phone{
+//        width: 285px!important;
+//      }
+//    }
+//    .rc-anchor{
+//      @include small-phone{
+//        width: 280px;
+//      }
+//    }
+//    .rc-anchor-normal{
+//      @include small-phone{
+//        width: 285px;
+//      }
+//    }
+//    #rc-imageselect{
+//      @include small-phone {
+//        width: 290px;
+//      }
+//    }
+//    .rc-imageselect-payload{
+//      @include small-phone {
+//        width: 285px !important;
+//      }
+//    }
+//  }
+//}

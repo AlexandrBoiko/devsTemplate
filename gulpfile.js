@@ -22,7 +22,6 @@ var gulp = require('gulp'),
 
 var assetsDir = 'assets/';
 var outputDir = 'dist/';
-var buildDir = 'build/';
 //livereload and open project in browser
 gulp.task('browser-sync', function () {
     browserSync.init({

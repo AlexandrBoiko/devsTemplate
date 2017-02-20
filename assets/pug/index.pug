@@ -2,25 +2,17 @@ extends layout/main
 include _mixin
 
 block title
-    | Главная страница
+    | index
 
 
 block content
 
     .wrapper
         include ./modules/header
-        h2 test png-sprites
-        i(class="facebook")
-        i(class="facebook-hover")
-        h2 и еще раз svg )))
-        +icon('money')
-
-
-
-
-
-
-
-
-        .empty
+        .menu
+          ul.list-menu
+            li.item-menu
+              a(href="main.html").item-link Main
+            li.item-menu
+              a(href="cart.html").item-link Cart
     include ./modules/footer

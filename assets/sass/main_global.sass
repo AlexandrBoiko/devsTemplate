@@ -6,47 +6,47 @@
 @import 'sprite.scss'
 @import 'spritePng.scss'
 
-$icon_font_name: 'iconfont'
-@font-face
-    font-family: $icon_font_name
-    src: url('../fonts/icons/iconfont.eot')
-    src: url('../fonts/icons/iconfont.eot?#iefix') format('eot'), url('../fonts/icons/iconfont.woff') format('woff'), url('../fonts/icons/iconfont.ttf') format('truetype'), url('../fonts/icons/iconfont.svg#iconfont') format('svg')
-// блок подключения сторонних шрифтов
-+font-name(NautilusPompiliusRegular)
-
-//блок png sprite
-=sprite-image($sprite)
-    $sprite-image: nth($sprite, 9)
-    background-image: url(../img/sprite/#{$sprite-image})
-
-.facebook
-    +sprite($facebook)
-    display: inline-block
-    &:hover
-        +sprite($facebook-hover)
-
-
-body
-    padding: 0 50px
-
-h2
-    font-family: 'NautilusPompiliusRegular', sans-serif
-
-.wrapper
-    min-height: 100%
-    overflow: hidden
-    position: relative
-
-// footer
-//     height: 115px
-//     margin-top: -115px
-//     position: relative
+//$icon_font_name: 'iconfont'
+//@font-face
+//    font-family: $icon_font_name
+//    src: url('../fonts/icons/iconfont.eot')
+//    src: url('../fonts/icons/iconfont.eot?#iefix') format('eot'), url('../fonts/icons/iconfont.woff') format('woff'), url('../fonts/icons/iconfont.ttf') format('truetype'), url('../fonts/icons/iconfont.svg#iconfont') format('svg')
+//// блок подключения сторонних шрифтов
+//+font-name(NautilusPompiliusRegular)
 //
-// .empty
-//     height: 115px
-
-.icon-sprout
-    font-size: 10rem
-
-.icon-money
-    font-size: 5rem
+////блок png sprite
+//=sprite-image($sprite)
+//    $sprite-image: nth($sprite, 9)
+//    background-image: url(../img/sprite/#{$sprite-image})
+//
+//.facebook
+//    +sprite($facebook)
+//    display: inline-block
+//    &:hover
+//        +sprite($facebook-hover)
+//
+//
+//body
+//    padding: 0 50px
+//
+//h2
+//    font-family: 'NautilusPompiliusRegular', sans-serif
+//
+//.wrapper
+//    min-height: 100%
+//    overflow: hidden
+//    position: relative
+//
+//// footer
+////     height: 115px
+////     margin-top: -115px
+////     position: relative
+////
+//// .empty
+////     height: 115px
+//
+//.icon-sprout
+//    font-size: 10rem
+//
+//.icon-money
+//    font-size: 5rem
