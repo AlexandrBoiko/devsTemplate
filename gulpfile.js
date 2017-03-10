@@ -60,7 +60,7 @@ gulp.task('jsConcat', function () {
 });
 gulp.task('svgSpriteBuild', function () {
     return gulp.src(assetsDir + 'i/icons/*.svg')
-        // minify svg
+    // minify svg
         .pipe(svgmin({
             js2svg: {
                 pretty: true
